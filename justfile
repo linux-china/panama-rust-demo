@@ -1,10 +1,8 @@
-std_include := "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
-
 # compile rust library
 compile-rust:
   cd src/main/rust; cargo build
   cp src/main/rust/target/debug/libmyrustlibrary.dylib ./
-  jextract --output src/main/java -t org.rust --header-class-name RustLib -l myrustlibrary -I {{std_include}} --include-function rust_get_pid --include-function hello src/main/rust/lib.h
+  jextract --output src/main/java -t org.rust --header-class-name RustLib -l myrustlibrary --include-function rust_get_pid --include-function hello src/main/rust/lib.h
 
 # build app
 build: clean compile-rust
