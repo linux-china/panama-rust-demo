@@ -4,9 +4,7 @@ std_include := "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.plat
 compile-rust:
   cd src/main/rust; cargo build
   cp src/main/rust/target/debug/libmyrustlibrary.dylib ./
-  jextract --output target/classes -t org.rust -l myrustlibrary -I {{std_include}} --include-function rust_get_pid --include-function hello src/main/rust/lib.h
-  rm -rf target/generated-sources/rust
-  jextract --output target/generated-sources/rust -t org.rust --header-class-name RustLib -l myrustlibrary -I {{std_include}} --include-function rust_get_pid --include-function hello src/main/rust/lib.h
+  jextract --output src/main/java -t org.rust --header-class-name RustLib -l myrustlibrary -I {{std_include}} --include-function rust_get_pid --include-function hello src/main/rust/lib.h
 
 # build app
 build: clean compile-rust
