@@ -18,7 +18,7 @@ build: clean compile-rust
 
 # GraalVM native-image build for AMD64 only
 native-build:
-  mvn -DskipTests package native:compile
+  mvn -DskipTests clean package native:compile
 
 # clean with maven and cargo
 clean:
