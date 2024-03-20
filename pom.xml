@@ -54,6 +54,26 @@
                     <enablePreview>true</enablePreview>
                 </configuration>
             </plugin>
+            <!--  AMD64 architecture only-->
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.10.1</version>
+                <configuration>
+                    <mainClass>org.mvnsearch.PanamaMain</mainClass>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                    <metadataRepository>
+                        <enabled>true</enabled>
+                        <version>0.3.6</version>
+                    </metadataRepository>
+                    <buildArgs>
+                        <buildArg>--enable-native-access=ALL-UNNAMED</buildArg>
+                        <buildArg>-H:+ForeignAPISupport</buildArg>
+                        <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
+                        <buildArg>--enable-preview</buildArg>
+                    </buildArgs>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
