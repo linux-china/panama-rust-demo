@@ -80,7 +80,7 @@
                     </metadataRepository>
                     <buildArgs>
                         <buildArg>--features=org.rust.RustLibForeignRegistrationFeature</buildArg>
-                        <buildArg>--enable-native-access=ALL-UNNAMED</buildArg>
+                        <buildArg>--enable-native-access=ALL-UNNAMED,org.graalvm.nativeimage.foreign</buildArg>
                         <buildArg>-H:+ForeignAPISupport</buildArg>
                         <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
                         <buildArg>--enable-preview</buildArg>
