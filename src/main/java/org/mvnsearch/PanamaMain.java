@@ -8,8 +8,10 @@ public class PanamaMain {
 
     public static void main(String[] args) throws Throwable {
         System.out.println(RustLib.rust_get_pid());
-        var username = Arena.ofAuto().allocateFrom("Jackie");
-        RustLib.hello(username);
+        try (var arena = Arena.ofConfined()) {
+            var username = arena.allocateFrom("Jackie");
+            RustLib.hello(username);
+        }
     }
 
 }
