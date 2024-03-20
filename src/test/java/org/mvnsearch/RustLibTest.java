@@ -13,7 +13,9 @@ public class RustLibTest {
 
     @Test
     public void testHello() {
-        var username = Arena.ofAuto().allocateFrom("Jackie");
-        RustLib.hello(username);
+        try (var arena = Arena.ofConfined()) {
+            var username = arena.allocateFrom("Jackie");
+            RustLib.hello(username);
+        }
     }
 }
