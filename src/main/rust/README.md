@@ -1,5 +1,5 @@
-Rust cdylib demo
-================
+Rust cdylib with FFI demo
+=========================
 
 # Writing Your C API
 
