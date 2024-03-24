@@ -14,6 +14,7 @@ Use Java 22 [JEP 454: Foreign Function & Memory API](https://openjdk.org/jeps/45
 
 * `src/main/rust`: Rust library cdylib source code with FFI
 * `src/main/java`: Java source code to call Rust functions by FFI
+* `RustLibWrapper.java`: Java wrapper class to call stub code.
 
 # How it works
 
@@ -37,6 +38,8 @@ $ cp -r build/jextract ~/tools/jextract
 ```
 
 # References
-
+            
+* cbindgen: https://github.com/mozilla/cbindgen
+* jextract: https://github.com/openjdk/jextract
 * Welcome, GraalVM for JDK 22! https://medium.com/graalvm/welcome-graalvm-for-jdk-22-8a48849f054c
 * Java Foreign Function Interface with RocksDB: https://rocksdb.org/blog/2024/02/20/foreign-function-interface.html
